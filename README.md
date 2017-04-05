@@ -6,7 +6,7 @@ A Dockerfile for Sonatype Nexus Repository Manager 3, based on Alpine.
 To run, binding the exposed port 8081 to the host.
 
 ```
-$ docker run -d -p 8081:8081 -p 5000:5000 --name nexus clearent/nexus
+$ docker run -d -p 8081:8081 -p 5000:5000 --name nexus dblk/nexus3
 ```
 
 
@@ -37,7 +37,7 @@ logs, and storage.
     These can be used supplied at runtime to control the JVM:
 
     ```
-    $ docker run -d -p 8081:8081 -p 5000:5000 --name nexus -e JAVA_MAX_MEM=2048M clearent/nexus
+    $ docker run -d -p 8081:8081 -p 5000:5000 --name nexus -e JAVA_MAX_MEM=2048M dblk/nexus3
     ```
 
 
@@ -48,7 +48,7 @@ If you want to run Nexus in SSL, you need to create a Java keystore file with yo
 You will need to mount your keystore to the appropriate directory and pass in the keystore password as well.
 
 ```
-$ docker run -d -p 8443:8443 -p 5000:5000 --name nexus -v /path/to/your-keystore.jks:/nexus-data/keystore.jks -e JKS_PASSWORD="changeit" clearent/nexus
+$ docker run -d -p 8443:8443 -p 5000:5000 --name nexus -v /path/to/your-keystore.jks:/nexus-data/keystore.jks -e JKS_PASSWORD="changeit" dblk/nexus3
 ```
 
 Nexus will now serve its' UI on HTTPS on port 8443 and redirect HTTP requests to HTTPS.
@@ -66,11 +66,11 @@ for additional information.
 
     ```
     $ docker run -d --name nexus-data clearent/nexus echo "data-only container for Nexus"
-    $ docker run -d -p 8081:8081 -p 5000:5000 --name nexus --volumes-from nexus-data clearent/nexus
+    $ docker run -d -p 8081:8081 -p 5000:5000 --name nexus --volumes-from nexus-data dblk/nexus3
     ```
 
 2.  *Mount a host directory as the volume*.
 
     ```
-    $ docker run -d -p 8081:8081 -p 5000:5000 --name nexus -v /some/dir/nexus-data:/nexus-data clearent/nexus
+    $ docker run -d -p 8081:8081 -p 5000:5000 --name nexus -v /some/dir/nexus-data:/nexus-data dblk/nexus3
     ```
