@@ -1,6 +1,6 @@
 FROM alpine:3.4
 
-MAINTAINER cavemandaveman <cavemandaveman@openmailbox.org>
+MAINTAINER DblK <admin@dblk.org>
 
 ENV SONATYPE_DIR="/opt/sonatype"
 ENV NEXUS_VERSION="3.2.1-01" \
@@ -22,7 +22,7 @@ RUN set -x \
     && mv "${SONATYPE_DIR}/nexus-${NEXUS_VERSION}" "${NEXUS_HOME}" \
     && adduser -S -h ${NEXUS_DATA} nexus
 
-EXPOSE 8081 8443
+EXPOSE 8081 8443 5000
 
 WORKDIR "${NEXUS_HOME}"
 
