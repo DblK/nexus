@@ -14,7 +14,7 @@ $ docker run -d -p 8081:8081 -p 5000:5000 --name nexus dblk/nexus3
 
 *   Default credentials are: `admin` / `admin123`
 
-*   Port 5000 is used in case of docker hosted registry because it need a additional port
+*   Port 5000 is used in case of docker hosted registry because it needs an additional port
 
 *   It can take some time (2-3 minutes) for the service to launch in a
 new container.  You can tail the log to determine once Nexus is ready:
