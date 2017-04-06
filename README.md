@@ -3,6 +3,8 @@
 
 A Dockerfile for Sonatype Nexus Repository Manager 3, based on Alpine.
 
+It's a fork of clearent/nexus.
+
 To run, binding the exposed port 8081 to the host.
 
 ```
@@ -65,7 +67,7 @@ for additional information.
     this purpose.  This is the recommended approach.  
 
     ```
-    $ docker run -d --name nexus-data clearent/nexus echo "data-only container for Nexus"
+    $ docker run -d --name nexus-data dblk/nexus3 echo "data-only container for Nexus"
     $ docker run -d -p 8081:8081 -p 5000:5000 --name nexus --volumes-from nexus-data dblk/nexus3
     ```
 
